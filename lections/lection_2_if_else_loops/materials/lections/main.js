@@ -130,3 +130,21 @@ counter = 1;
 //     console.log(i)
 //   }
 // }
+
+
+for(i = 1, sum = 0, res = 0; i <= 150; i++) {
+  sum += i;
+  if (i % 2 == 0) {
+    console.log(i, 'i');
+    res += i;
+  }
+}
+
+console.log(sum, 'sum');
+console.log(res, 'res');
+
+i = 0;
+
+do {
+  value = +prompt('Input number');
+} while(isNaN(value))
