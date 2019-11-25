@@ -1,120 +1,95 @@
 console.log('Lection 7');
 
 // --------- recursive --------
-
-
-// function foo (){
-
-//     return function () {
-
-//     }
-// }
-
-
-
-
-// function foo ()  {
-//     foo();
-// }
-
-// foo(
-
-// function iteration(i) {
-//     debugger;
-//     if (i == 3) {
-//         return;
-//     } else {
-//         console.log(i, 'i');
-//         iteration(++i);
-//     }
-// }
-
-
-// iteration(0);
-
-
-// function sumToArray (list) {
-//     debugger;
-//     if (list.length === 1) {
-//         return list[0]
-//     } else {
-//         return list.pop() + sumToArray(list);
-//     }
-// }
-
-
-
-
-
-// sum = sumToArray([1,2,3,4]);
-
-// console.log(sum, 'sum')
-
-
-
-// obj.propertyName
-
-
-
-menu = {
-    width: '200px',
-    height: '100px',
-    isVisiable: false
-}
-
-
-team = new Array(10);
-
-for(i = 0; i < team.length; i++) {
-    team[i] = {
-        name: 'Valera ' + Math.random() * 10,
-        age: Math.ceil(Math.random() * (30 - 10) + 10)
-    }
-}
-
-// console.log(team, 'team');
-// console.log(team[1].name, 'team');
-
-
-human =  {
-    name: 'Valera',
-    age: 25,
-    isMarried: false,
-    skills: ['css', 'js', 'html'],
-    sleep: function () {
-        console.log("Zzzzzz....")
-    },
-    children: {
-        name:'asdsad'
+function iteration(i, size) {
+    console.log(i, 'i');
+    if(i == size) {
+         return;
+    } else {
+        iteration(++i, size);
     }
 
 }
 
-// console.log(human.age, 'age');
-// console.log(human.name, 'name');
-// console.log(human.isMarried, 'isMarried');
-// console.log(human.skills, 'skills');
 
-// console.log(human.name);
-// console.log(human["name"])
+iteration(0, 5);
 
 
-// key = 'age';
+mass = [1,2,3,4];
+
+// function sumArray(mass) {
+//     if(mass.length == 1) {
+//         return mass[0];
+//     } else {
+//         var last = mass.pop();
+//         var res = last + sumArray(mass);
+//         return res;
+//     }
+// }
+
+// debugger;
+// console.log(sumArray(mass));
+
+// console.log('before sumArray');
+
+person = {
+    chortName: "Valera",
+    lastName: "Abd"
+};
 
 
-// console.log(human[key]);
+console.log(person.chortName);
+console.log(person['chortName']);
 
-// // console.log(human.key);
+foo = 'lastName';
 
-// console.log(human.sleep);
+console.log(person[foo]);
 
-// console.log(human.sleep());
+foo = 'chortName';
+
+console.log(person[foo]);
+
+// -------------- add prop in object
+
+person.ololo = false;
+
+console.log(person.ololo)
+
+person[foo] = 12323;
+console.log(person, 'person');
 
 
-//for( key in  obj)
+var menu = {
+    direction: 'row',
+    width: '500px',
+    isOpen: false
+};
 
+team = [];
 
-for(key in  human) {
-    // console.log(key, 'key');
-    console.log(human[key], 'key');
-}
+// for(var i = 0; i < 3; i++) {
+//    var person = {}, name, age, lastName;
+
+//     name = prompt('Name');
+//     person.name = name;
+
+//     lastName = prompt('lastName');
+//     person.lastName = lastName;
+
+//     age = +prompt('Age');
+//     person.age = age;
+
+//     team.push(person);
+// }
+
+console.log(team, 'team');
+
+var person = {};
+
+person["Hello world"] = 123;
+
+console.log(person, 'person');
+
+// console.log(person["Hello world"] = )
+
+// console.log(person.Hello world)
