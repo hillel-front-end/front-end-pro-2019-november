@@ -84,3 +84,38 @@ for(var i in person) {
 }
 
 // if(arr[i] && arr[i].splice)
+
+function arrayFiller(mass) { // [] , [].length = 4;
+    for(var i = 0; i < mass.length; i++) {
+        if (mass[i] && mass[i].splice) {
+            mass[i].length = 4;
+            arrayFiller(mass[i])
+        } else {
+            mass[i] = Math.random();
+        }
+    }
+
+    console.log(mass, 'mass');
+}
+
+var array =[ [], [[[]]] ];
+
+arrayFiller(array);
+
+
+obj = {
+    a: 10,
+    b: 12,
+    c: {
+        f: 13
+    }
+}
+function convert(obj) {
+    var newObj = {a: 10};
+
+    for(var key in obj) { // key = 'a'
+        newObj['a'] = obj['a'];
+    }
+}
+
+convert(obj);
