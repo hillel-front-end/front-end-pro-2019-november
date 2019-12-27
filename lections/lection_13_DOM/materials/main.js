@@ -12,9 +12,9 @@
 window.onload = function() {
     console.dir(document, 'document')
 
-    var html = document.documentElement;
+    // var html = document.documentElement;
     
-    console.dir(html, 'html');
+    // console.dir(html, 'html');
     
     // var block = document.getElementById('block');
 
@@ -24,22 +24,22 @@ window.onload = function() {
 
     // var blocks = document.getElementsByTagName('div');
 
-    var block = document.querySelector('.foo#block');
+//     var block = document.querySelector('.foo#block');
 
-    console.dir(block)
+//     console.dir(block)
 
-   var a = block.querySelector('a');
+//    var a = block.querySelector('a');
 
-    var blocks = document.querySelectorAll('.foo#block');
+//     var blocks = document.querySelectorAll('.foo#block');
 
-    // console.dir(blocks)
+//     // console.dir(blocks)
 
-    console.dir(a.style.color = 'green', 'a');
-    a.style.left = '10px';
+//     console.dir(a.style.color = 'green', 'a');
+//     a.style.left = '10px';
 
-    // blocks.style.color = 'red'; --- >>bad, good: blocks[i]
+//     // blocks.style.color = 'red'; --- >>bad, good: blocks[i]
 
-    block.classList.add('name');
+//     block.classList.add('name');
     
 
     // setTimeout(function(){
@@ -51,8 +51,23 @@ window.onload = function() {
     //     block.classList.toggle('name');
     // }, 3000)
         
-    console.log(block.classList.contains('name'));
+    // console.log(block.classList.contains('name'));
 
+    document.querySelector('.box').classList.add('bg-color');
+console.dir(  document.querySelector('.box'))
+    var boxes = document.querySelectorAll('.box');
+
+    for(var i = 0; i < boxes.length; i++) {
+        boxes[i].classList.add('position');
+        boxes[i].style.top = getRandom(0, 1000) + 'px';
+        boxes[i].style.left = getRandom(0, 1000) + 'px';
+
+    }
+
+
+    function getRandom(min, max) {
+     return Math.round(Math.random() * (max - min) + min);
+    }
 
 }
 
