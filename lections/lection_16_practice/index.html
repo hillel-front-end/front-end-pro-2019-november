@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            position: fixed;
+            transition: all 2s;;
+        }
+
+        .box:nth-child(even) {
+            left: 100%;
+        }
+
+        .box:nth-child(odd) {
+            left: -200px;
+        }
+
+        .center {
+            left: 50% !important;
+            transform: translateX(-50%);
+        }
+
+        div {
+            font-size: 45px;
+            color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+    <script>
+        window.onload = function() {
+            var boxes = document.querySelectorAll('.box');
+            var i = 0;
+
+            for(; i < boxes.length; i++) {
+                boxes[i].onclick = (function (i) {
+                    return function() {
+                        var counter;
+
+                        if (boxes[i + 1]) {
+                            counter = i + 1;
+                        }else {
+                            counter = 0;
+                        } // undefined -> false -> !false -> true
+
+                        this.classList.remove('center');
+                        boxes[counter].classList.add('center')
+                    }
+                })(i);
+
+                // boxes[i].onclick = function() {
+                //         console.log(i);
+                // }
+            }
+        }
+    
+    </script>
+</head>
+<body>
+    <div class="box center">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+    <div class="box">6</div>
+    <div class="box">7</div>
+
+</body>
+</html>
