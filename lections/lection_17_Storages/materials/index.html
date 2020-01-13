@@ -25,21 +25,30 @@
             padding: 10px;
             border: 1px solid black;
         }
+
+        #foo {
+            display: inline-block;
+            border: 1px solid black;
+            padding: 10px;
+            border-radius: 50%;
+            margin-right: 10px;
+            cursor: pointer;
+        }
     </style>
     <script src="./main.js"></script>
 </head>
 
-<body>
-    <div class="block">
-        <button class="button">Click</button>
-        <span class="counter"></span>
-    </div>
+<body> 
+    <div class="parent">
+        <span foo='123'data-action="copy" id="foo" >without action</span>
 
-    <div class="block">
-            <button class="button">Click</button>
-            <span class="counter">0</span>
+        <span foo='123' id="foo" data-action="save" data-dno="save">
+            save as
+            <span>  save as</span>
+        </span>
+        <span foo='123' id="foo" data-action="copy">copy this</span>
+        <span foo='123' id="foo" data-action="delete"> delete dno</span>
     </div>
-
 </body>
 
 </html>
