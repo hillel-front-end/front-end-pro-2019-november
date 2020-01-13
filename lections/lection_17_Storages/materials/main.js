@@ -29,17 +29,19 @@ JSON поддерживает следующие типы данных:
 window.onload = function() {
     var parent = document.querySelector('.parent');
 
-    var actions = {
-        save: function() {
-            console.log('..saving')
-        },
-        copy: function () {
-            console.log('... copy')
-        }, 
-        delete: function () {
-            console.log('delete');
-        }
-    }
+    // var actions = {
+    //     save: function() {
+    //         console.log('..saving')
+    //     },
+    //     copy: function () {
+    //         console.log('... copy')
+    //     }, 
+    //     delete: function () {
+    //         console.log('delete');
+    //     }
+    // }
+
+
 
     // console.log('foo', foo);
 
@@ -69,6 +71,7 @@ window.onload = function() {
 
     // localStorage.setItem('foo', {value: 123});
 
+
     var obj = {
         name: 'Valera',
         age: 12,
@@ -79,6 +82,7 @@ window.onload = function() {
         }
     }
 
+    // var value = localStorage[textField[i].name];
     
 
 
@@ -90,6 +94,44 @@ window.onload = function() {
 
     
     // console.log(JSON.parse(json), 'json');
+
+ ////////////////////////////////////////////////////////////////////
+    var fields = document.querySelectorAll('.firstName, .lastName');
+    var button = document.querySelector('#go');
+
+    getValueFroStore()m;
+
+
+    function setValueInStore() {
+        var obj = {};
+        
+        for(var i = 0; i < fields.length; i++) {
+            var name = fields[i].name;
+            var value = fields[i].value;
+            obj[name] = value;
+        }
+    
+
+        var json = JSON.stringify(obj);
+        localStorage.setItem('form', json);
+    }
+
+    button.onclick = setValueInStore;
+
+    function getValueFromStore() {
+        var obj = JSON.parse(localStorage.getItem('form'));
+       
+        if (obj) {
+            for(var i = 0; i < fields.length; i++) {
+                var name = fields[i].name;
+                var value = obj[name];
+                fields[i].value = value;
+            }
+        }
+    
+    }
+
+
 
 }
 
