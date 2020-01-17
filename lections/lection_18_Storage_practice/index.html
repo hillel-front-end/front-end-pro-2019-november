@@ -24,10 +24,10 @@
             }
 
             store.getFromStore('counter');
-            getParent(button, '.block').querySelector('.counter').innerHTML = store.value;
+            var block = getParent(button, '.block').querySelector('.counter').innerHTML = store.value;
 
             button.onclick = function() {
-               var block = this.closest('.block');
+               var block = getParent(button, '.block');
                var counter = 0;
 
                if (block) {
