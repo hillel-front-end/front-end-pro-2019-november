@@ -7,7 +7,7 @@
     <title>Document</title>
     <script>
         window.onload = function() {
-            var button = document.querySelector('.button');
+            var button = document.querySelectorAll('.button');
 
             var store = {
                 value: '',
@@ -23,24 +23,38 @@
                 return elem.closest(selector);
             }
 
-            store.getFromStore('counter');
-            var block = getParent(button, '.block').querySelector('.counter').innerHTML = store.value;
 
-            button.onclick = function() {
-               var block = getParent(button, '.block');
-               var counter = 0;
+            for(let i = 0; i < button.length; i ++) {
+                store.getFromStore('counter' + i);
+                var block = getParent(button[i], '.block').querySelector('.counter').innerHTML = store.value;
 
-               if (block) {
-                    counter = ++block.querySelector('.counter').innerHTML;
-               }
+                button[i].onclick = function() {
+                    var block = getParent(button[i], '.block');
+                    var counter = 0;
 
-               store.setInStore('counter', counter);
+                    if (block) {
+                            counter = ++block.querySelector('.counter').innerHTML;
+                    }
+
+                    store.setInStore('counter' + i, counter);
+                }
             }
-            
+        
+        
         }
     </script>
 </head>
 <body>
+    <div class="block">
+        <button class="button">+</button>
+        <span class="counter"></span>
+    </div>
+
+    <div class="block">
+        <button class="button">+</button>
+        <span class="counter"></span>
+    </div>
+
     <div class="block">
         <button class="button">+</button>
         <span class="counter"></span>
