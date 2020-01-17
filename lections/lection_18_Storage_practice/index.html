@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var button = document.querySelector('.button');
+
+            var store = {
+                value: '',
+                setInStore: function(key, value) {
+                    localStorage.setItem(key, value);
+                },
+                getFromStore: function(key) {
+                    this.value = localStorage.getItem(key) || 0;
+                }
+            }
+
+            function getParent(elem, selector) {
+                return elem.closest(selector);
+            }
+
+            store.getFromStore('counter');
+            getParent(button, '.block').querySelector('.counter').innerHTML = store.value;
+
+            button.onclick = function() {
+               var block = this.closest('.block');
+               var counter = 0;
+
+               if (block) {
+                    counter = ++block.querySelector('.counter').innerHTML;
+               }
+
+               store.setInStore('counter', counter);
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <div class="block">
+        <button class="button">+</button>
+        <span class="counter"></span>
+    </div>
+</body>
+</html>
