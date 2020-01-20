@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var button = document.querySelectorAll('.button');
+
+            var store = {
+                value: '',
+                setInStore: function(key, value) {
+                    localStorage.setItem(key, value);
+                },
+                getFromStore: function(key) {
+                    this.value = localStorage.getItem(key) || 0;
+                }
+            }
+
+            function getParent(elem, selector) {
+                return elem.closest(selector);
+            }
+
+
+            for(let i = 0; i < button.length; i ++) {
+                store.getFromStore('counter' + i);
+                var block = getParent(button[i], '.block').querySelector('.counter').innerHTML = store.value;
+
+                button[i].onclick = function() {
+                    var block = getParent(button[i], '.block');
+                    var counter = 0;
+
+                    if (block) {
+                            counter = ++block.querySelector('.counter').innerHTML;
+                    }
+
+                    store.setInStore('counter' + i, counter);
+                }
+            }
+        
+        
+        }
+    </script>
+</head>
+<body>
+    <div class="block">
+        <button class="button">+</button>
+        <span class="counter"></span>
+    </div>
+
+    <div class="block">
+        <button class="button">+</button>
+        <span class="counter"></span>
+    </div>
+
+    <div class="block">
+        <button class="button">+</button>
+        <span class="counter"></span>
+    </div>
+</body>
+</html>
