@@ -185,3 +185,29 @@ let mass = [1,2,3];
 const [a,,c] = mass;
 
 console.log(a, c)
+
+let data = [
+    { title: 'Title1', size: 100, img: 'url' , cost: 300}, 
+    { title: 'Title2', size: 200, img: 'url',cost: 300 }, 
+    { title: 'Title2', size: 150, img: 'url', cost: 300 },
+    { title: 'Title2', size: 150, img: 'url', cost: 300 },
+    { title: 'Title2', size: 150, img: 'url', cost: 300 }
+];
+
+const goods = document.querySelector('.goods');
+
+function ViewCtrl() {
+    
+}
+
+ViewCtrl.prototype.render = mass => {
+  let items = mass.map(item => '<div' + ' class="block"' + '>' + item.title + '</div>');
+  goods.innerHTML  = items.join(' ')
+}
+
+
+let view = new ViewCtrl();
+
+console.log(view, 'view');
+
+view.render(data);
