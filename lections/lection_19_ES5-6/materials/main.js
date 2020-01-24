@@ -194,15 +194,13 @@ let data = [
     { title: 'Title2', size: 150, img: 'url', cost: 300 }
 ];
 
-const goods = document.querySelector('.goods');
+const goods = document.querySelector('.users');
 
-function ViewCtrl() {
-    
-}
+function ViewCtrl() {}
 
 ViewCtrl.prototype.render = mass => {
   let items = mass.map(item => '<div' + ' class="block"' + '>' + item.title + '</div>');
-  goods.innerHTML  = items.join(' ')
+  users.innerHTML  = items.join(' ')
 }
 
 
