@@ -32,10 +32,13 @@ window.onload = function() {
     }
 
     
-   xhttp.open("GET", "http://localhost:3000/users", true);
+   xhttp.open("post", "http://localhost:3000/users", true);
 
    this.document.querySelector('#btn').onclick = function() {
-        xhttp.send();
+       var data = {name: '123'};
+       var jsonData = JSON.stringify(data);
+
+        xhttp.send(jsonData);
    }
 
    function render(data) {
@@ -44,4 +47,5 @@ window.onload = function() {
     let items = data.map(item => '<div' + ' class="block"' + '>' + item.name + '</div>');
       users.innerHTML  = items.join(' ')
    }
+   
 }

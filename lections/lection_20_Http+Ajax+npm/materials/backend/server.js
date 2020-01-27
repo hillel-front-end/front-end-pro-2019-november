@@ -1,32 +1,56 @@
 var express = require('express');
 var fs = require('fs');
 var app = express();
+var bodyParser = require('body-parser');
 
-app.use(function(req, res, next) { // разрешаем всем видам запроса работать с нашим сервером.
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
+
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.text());
+app.use(bodyParser.json({type: 'application/json'}));
+app.use(function (req, res, next) {
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+	res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+	res.setHeader('Access-Control-Allow-Credentials', true);
+	next();
 });
+
 
 app.get('/', function (req, res) { // req - обьект запроса, res -- обьект ответа
-    // fs.readFile("a.json", 'utf-8', function(err, content) {
-    //   res.send(content);
-    // });
+    fs.readFile("foo.json", 'utf-8', function(err, content) {
+      content = JSON.parse(content);
+
+      console.log(content, 'content');
+
+      content.isMarried = true;
 
 
-    fs.writeFile("a.json", JSON.stringify(['1']), (err) => {
-      if (err) console.log(err);
+      fs.writeFile("foo.json", JSON.stringify(content), (err) => {
+        if (err) console.log(err);
+  
+        console.log("Successfully Written to File.");
+      });
 
-      console.log("Successfully Written to File.");
+      res.status(200);
+      res.send(content);
     });
 
+
+
 });
 
-app.get('/users', function (req, res) { // req - обьект запроса, res -- обьект ответа
+app.post('/users', function (req, res) { // req - обьект запроса, res -- обьект ответа
   const users = getDataFromDataBasse(); 
-
+  console.log(req.body)
   res.send(users);
 });
+
+// app.post('/write', function (req, res) { // req - обьект запроса, res -- обьект ответа
+
+
+//   res.send('abc');
+// });
+
 
 
 function getDataFromDataBasse() {
