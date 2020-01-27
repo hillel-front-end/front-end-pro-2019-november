@@ -9,8 +9,16 @@ app.use(function(req, res, next) { // разрешаем всем видам з�
 });
 
 app.get('/', function (req, res) { // req - обьект запроса, res -- обьект ответа
+    // fs.readFile("a.json", 'utf-8', function(err, content) {
+    //   res.send(content);
+    // });
 
-    res.send('ok');
+
+    fs.writeFile("a.json", JSON.stringify(['1']), (err) => {
+      if (err) console.log(err);
+
+      console.log("Successfully Written to File.");
+    });
 
 });
 
