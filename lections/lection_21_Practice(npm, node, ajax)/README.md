@@ -1,4 +1,7 @@
 ﻿# Изучить материал
++ https://codeguida.com/post/601 
++ https://expressjs.com/ru/starter/basic-routing.html (можно почитать о обработчиках маршрутов на nodejs кому интерестно)
++ https://itchief.ru/lessons/javascript/ajax-asynchronous-requests-in-the-examples (в этой статье php-скрипт воспринемайте как nodejs - скрипт)
 
 Практика:
 * Создать форму с полями login, password и кнопку sign in. По нажатию на кнопку введенные данные с формы отправляются на сервер. 
