@@ -5,12 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <!-- <script src="node_modules/jquery/dist/jquery.js"></script> -->
-    <script src="./main.js"></script>
+
+    <style>
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: greenyellow;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
 </head>
 <body>
     <div id="app">
+        {{foo}}
+        <span v-html="textAsHTML"></span>
+        <button v-bind:disabled="foo.length != 0 && bool">Dis button</button>
+        <a :href="url">{{url}}</a>
+        <hr>
+        <p>V-model</p>
+        <input type="text" v-model="requestData.name">
+        <input type="text" v-model="requestData.sureName">
+        <input type="number" v-model="requestData.age">
+
+        {{requestData}}
+        <hr>
+
+        <h1>v-if</h1>
+        {{goods.length}}
+        <div class="goods" v-if="goods.length > 5">
+            {{goods}}
+        </div>
+        <div v-else-if="goods.length < 5">
+            Товаров больше 3ьох
+        </div>
+        <div v-else>
+            Товара нет на складе.
+        </div>
+
+
+        <hr />
+
+        <h1>v-show</h1>
+
+        <div v-show="bool">
+            Товара есть на складе.
+        </div>
+
+        <h1> v-for </h1>
+        
+        <ul>
+            <li v-for="(item, $index) in goods" :key="$index">
+                {{item.label}}
+            </li>
+        </ul>
+
+        <hr />
+
+        <h1>
+            Styles class
+        </h1>
+
+        <div :class="{'error': !bool, 'success': bool}">
+            {{bool? 'Все хорошо': 'Все плохо'}}
+        </div>
+
+        <div :class="['success', bool? 'aaa': 'bbb']">
+            {{bool? 'Все хорошо': 'Все плохо'}}
+        </div>
+
+
+        <hr />
+
+        <h1> Attr style</h1>
+
+        <div :style="{'color': 'red', 'fontSize': (bool? size + 'px': null)}">
+            {{bool? 'Все хорошо': 'Все плохо'}}
+        </div>
+
+        <hr />
+        <h1> Events</h1>
+
+        <!-- <button v-on:click="size += 1">{{size}}</button> -->
+
+        {{size}}
+
+
+        <button v-on:click="inc($event)">{{size}}</button>
 
     </div>
+    <script src="./main.js"></script>
+    <!-- {{requestData}} not working -->
 </body>
 </html>

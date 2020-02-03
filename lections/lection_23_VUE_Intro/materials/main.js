@@ -10,7 +10,7 @@ console.log('Lection 23 __ VUE INTRO __');
     * v-bind:href="url"
     * v-model
     * v-if="boolean" - v-else-if="boolean" - v-else
-    * v-show
+    * v-show="boolean"
     * v-for - loop (Work like  for-in), (value, name, index)
 
 4. styles directives:
@@ -22,6 +22,27 @@ console.log('Lection 23 __ VUE INTRO __');
 6. $set(vm.items, indexOfItem, newValue)
 */
 
-window.onload = () => {
-    const config = {};
-}
+// window.onload = () => {
+    var config = {
+        el: '#app',
+        data: {
+            foo: '123123',
+            size: 15,
+            bool:true,
+            textAsHTML: 'Hello <a href="#">world</a>',
+            url: 'https://www.google.com/',
+            requestData: {name:''},
+            goods: [{label:'Milk'}, {label:'Juice'}, {label:'Beer'}],
+            inc(event) {
+              console.log('123', event);
+               vue.size +=1;
+
+            //    vue.requestData.a = '123';
+            //    vue.$set(vue.requestData, 'a', '123')
+            }
+        }
+    };
+
+    let vue = new Vue(config);
+
+// }
