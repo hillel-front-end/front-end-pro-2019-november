@@ -30,6 +30,12 @@ export default {
   components: {
     Main: Main,
     Navigation: Navigation
+  },
+  created() {
+    console.log('worked Hello world');
+    console.log(this.$router);
+    console.log(this.$route)
+    // setTimeout(() =>  this.$router.push({path:'about'}), 3000);
   }
 }
 </script>

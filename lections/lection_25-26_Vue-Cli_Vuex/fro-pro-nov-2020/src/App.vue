@@ -1,6 +1,11 @@
 <template>
   <div id="app">
-      <HelloWold />
+    <header> 
+      <router-link to="/">HelloWold</router-link>
+      <br />
+      <router-link to="/about">About</router-link>
+    </header>
+    <router-view> </router-view>
   </div>
 </template>
 
