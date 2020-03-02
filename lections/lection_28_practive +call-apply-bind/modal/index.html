@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .app {
+            height: 100vh;
+            border: 1px solid purple;
+        }
+
+        .modal-backdrop {
+            position: fixed;
+            z-index: 999;
+            left: 0px;
+            top: 0px;
+            bottom: 0px;
+            right: 0px;
+
+            display: none;
+        }
+
+        .modal-backdrop__bgc {
+            background-color: rgba(0, 0, 0, 0.3686274509803922);
+        }
+
+        header {
+            height: 100px;
+            border: 1px solid purple;
+            background-color: purple;
+        }
+
+        .container {
+            height: 100vh;
+        }
+
+        main {
+            margin-top: 30px;
+            display: flex;
+        }
+
+        .left, .right {
+            width: 50%;
+            height: 300px;
+            border: 1px solid black;
+        }
+
+        .modal {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            top: 0px;
+            bottom: 0px;
+        }
+
+        .modal__content {
+            width: 50%;
+            background-color: #fff;
+            min-height: 300px;
+        }
+
+        .modal__header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+        }
+
+        #a:checked ~ .app .modal-backdrop {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="a">
+    <div class="app">
+        <div class="container">
+            <header></header>
+            <main>
+                <div class="left"><label for="a">show modal</label></div>
+                <div class="right"></div>
+            </main>
+        </div>
+        <div class="modal-backdrop modal-backdrop__bgc">
+            <div class="modal">
+                <div class="modal__content">
+                   <div class="modal__header">Шапка</div>
+                   <div class="modal__content"></div>
+                   <div class="modal__footer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
