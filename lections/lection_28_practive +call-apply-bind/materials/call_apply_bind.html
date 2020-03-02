@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // call, apply, bind
+
+    // var name = "Global Name";
+    // var lastName = "Global Last Name";
+
+    var personOne = {
+        name: 'Vasy',
+        lastName: "Petrov"
+    };
+
+    // let personTwo = {
+    //     name: 'Kosty',
+    //     lastName: "Lomov"
+    // };
+
+    // function getFullName(value) {
+    //     console.log(this, 'from getFullName');
+    //     this.value = value;
+    //     return this.name + ' ' + this.lastName + ' ' + value;
+    // }
+
+    // personOne.run = run;
+
+    // console.log(getFullName.call(personOne, 'aaaa'));// func.call(context)
+    // getFullName();// window
+    // console.log(personOne, 'personOne');
+
+    // etFullName.apply(personOne, 'aaaa')
+
+    function foo() {
+        console.log(arguments, 'argument');
+
+        let arg = [].slice.call(arguments);
+        // Array.prototype.slice.call(arguments);
+
+
+        console.log(arg);
+    }
+
+    
+
+    foo(1,3,4,5,6,7);
+
+
+    // ------------ bind ------------
+
+    // function bind(context) { 
+    //     let fn = this;
+
+    //     return function(arg) {
+    //         return fn.call(context, arg);
+    //     }
+    // }
+
+    // let personTwo = {
+    //     name: 'Kosty',
+    //     lastName: "Lomov"
+    // };
+
+    // function getFullName(value) {
+    //     console.log(this, 'from getFullName');
+    //     this.value = value;
+    //     return this.name + ' ' + this.lastName + ' ' + value;
+    // }
+
+    // personTwo.getFullName = getFullName;
+
+    // // personTwo.getFullName();
+
+    // // let _getFullName = getFullName.bind(personTwo);
+
+    // // _getFullName();
+
+    // new Promise(function(res, rej) {
+    //     res();
+    // })
+    //     .then(personTwo.getFullName.bind(personTwo));
+
+    // setTimeout(personTwo.getFullName.bind(personTwo), 3000);
+
+    // function setTimeout(callback, time) { // callback = personTwo.getFullName
+    //     callback();
+    // }
+
+    // setTimeout(personTwo.getFullName);
+    </script>
+</body>
+</html>
